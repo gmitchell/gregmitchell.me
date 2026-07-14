@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greg Mitchell — Director of Partnerships & Integrations</title>
+<meta name="description" content="Greg Mitchell — Partnerships and integrations leader with 14 years across adtech, data, martech, and analytics. Open to remote director-level roles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1c2733;
+    --ink-soft: #46525f;
+    --ink-faint: #7a8694;
+    --paper: #fbfcfd;
+    --panel: #f1f4f7;
+    --line: #dde3e9;
+    --accent: #2456c8;
+    --accent-dark: #1a3f96;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.55;
+    font-size: 15.5px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .page {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 28px 80px;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    padding: 64px 0 40px;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(38px, 6vw, 58px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 12px;
+  }
+  .tagline {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 620px;
+    margin-bottom: 26px;
+  }
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+    align-items: center;
+  }
+  .contact-row span.dot { color: var(--line); }
+  .actions { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: 1px solid var(--accent);
+    transition: background .15s, color .15s;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-dark); text-decoration: none; }
+  .btn-ghost { color: var(--accent); background: transparent; }
+  .btn-ghost:hover { background: var(--panel); text-decoration: none; }
+
+  /* ---------- Layout ---------- */
+  .layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 56px;
+    padding-top: 48px;
+  }
+  aside { position: relative; }
+  .aside-inner { position: sticky; top: 32px; }
+
+  .side-block { margin-bottom: 34px; }
+  .side-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+  .chip {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 4px 9px;
+  }
+  .side-list { list-style: none; font-size: 14px; }
+  .side-list li { margin-bottom: 10px; }
+  .side-list .sub {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- Main sections ---------- */
+  section { margin-bottom: 52px; }
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  h2::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .summary p { font-size: 16.5px; color: var(--ink-soft); max-width: 640px; }
+
+  .job { margin-bottom: 38px; }
+  .job:last-child { margin-bottom: 0; }
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 2px;
+  }
+  .job-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17.5px;
+    font-weight: 600;
+  }
+  .job-title .co { color: var(--accent); }
+  .job-dates {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .job-context {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+  .job ul { list-style: none; }
+  .job li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 8px;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+  }
+  .job li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 6px;
+    height: 6px;
+    border-radius: 1px;
+    background: var(--accent);
+    opacity: 0.55;
+  }
+  .job li strong { color: var(--ink); font-weight: 600; }
+
+  .project {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    background: #fff;
+  }
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  .project-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .project-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+  }
+  .project p { font-size: 14.5px; color: var(--ink-soft); }
+
+  footer {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: 1fr; gap: 8px; }
+    .aside-inner { position: static; }
+    aside { order: 2; }
+    main { order: 1; }
+    header { padding-top: 44px; }
+  }
+
+  /* ---------- Print ---------- */
+  @media print {
+    body { font-size: 12px; background: #fff; }
+    .actions, .btn { display: none !important; }
+    .layout { grid-template-columns: 1fr; gap: 0; }
+    aside { order: 2; }
+    .aside-inner { position: static; }
+    header { padding: 0 0 16px; }
+    section { margin-bottom: 22px; page-break-inside: avoid; }
+    .project { break-inside: avoid; }
+    a { color: var(--ink); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="eyebrow">AdTech · Data · Martech</div>
+    <h1>Greg Mitchell</h1>
+    <p class="tagline">Director of Partnerships &amp; Integrations — building partner ecosystems, technical integrations, and go-to-market motions for data products.</p>
+    <div class="contact-row">
+      <span>Longmont, CO</span><span class="dot">/</span>
+      <a href="mailto:01greg@gmail.com">01greg@gmail.com</a><span class="dot">/</span>
+      <a href="tel:+13213883962">321-388-3962</a><span class="dot">/</span>
+      <a href="https://linkedin.com/in/gmitchell1" target="_blank" rel="noopener">linkedin.com/in/gmitchell1</a><span class="dot">/</span>
+      <span>Open to remote roles</span>
+    </div>
+    <div class="actions">
+      <a class="btn btn-primary" href="Greg_Mitchell_Resume.pdf" download>Download PDF</a>
+      <a class="btn btn-ghost" href="mailto:01greg@gmail.com">Get in touch</a>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <aside>
+      <div class="aside-inner">
+        <div class="side-block">
+          <div class="side-title">Core competencies</div>
+          <div class="chips">
+            <span class="chip">Strategic Partnerships</span>
+            <span class="chip">Partner &amp; Vendor Management</span>
+            <span class="chip">Technical Integrations</span>
+            <span class="chip">Partner Enablement</span>
+            <span class="chip">Go-to-Market Support</span>
+            <span class="chip">Technical Pre-Sales</span>
+            <span class="chip">Data &amp; Identity Ecosystem</span>
+            <span class="chip">AdTech &amp; Martech</span>
+            <span class="chip">First-Party Data</span>
+            <span class="chip">Audience Distribution</span>
+            <span class="chip">Cross-Functional Leadership</span>
+            <span class="chip">Process Design &amp; Automation</span>
+          </div>
+        </div>
+        <div class="side-block">
+          <div class="side-title">Education</div>
+          <ul class="side-list">
+            <li>Full-Stack Web Development<span class="sub">Thinkful</span></li>
+            <li>Computer Science Coursework<span class="sub">Valencia College</span></li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+
+      <section class="summary">
+        <h2>Summary</h2>
+        <p>Partnerships and integrations leader with 14 years of experience across adtech, data, martech, analytics, and enterprise technology. I manage strategic partner and vendor relationships, lead technical integrations, and support go-to-market efforts for data products. Known for translating business needs into practical technical solutions, improving partner operations, and building processes that scale. Background includes partner management, technical pre-sales, client strategy, data integrations, and cross-functional team leadership.</p>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">Director, New Initiatives <span class="co">· Path2Response LLC</span></div>
+            <div class="job-dates">2023 — Present</div>
+          </div>
+          <p class="job-context">Lead the company's partner ecosystem, technical integrations, and go-to-market work across a first-party data and direct mail co-op business.</p>
+          <ul>
+            <li>Manage relationships with <strong>eight external data and technology partners</strong>, including Merkle/4Cite, Zeta, Skydeo, El Toro, Wunderkind, and Visual Visitor; partner-sourced data volume nearly <strong>doubled over two years</strong>.</li>
+            <li>Led the integration of the company's first-party dataset into the <strong>LiveRamp marketplace</strong>, opening distribution to more than 100 DSPs and audience platforms and creating a new revenue channel.</li>
+            <li>Own the partner lifecycle from evaluation and technical scoping through contract alignment, onboarding, launch, and ongoing relationship management.</li>
+            <li>Support new data product launches by identifying partners, shaping requirements, coordinating internal teams, and providing technical pre-sales support.</li>
+            <li>Evaluate and onboard audience distribution partners, including Eyeota, Neustar, and LiveRamp alternatives, to expand marketplace reach.</li>
+            <li>Reduced client onboarding from <strong>more than seven days to one business day</strong> through process redesign, automation, and clearer ownership.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">Director of Analytics <span class="co">· Spark Foundry</span></div>
+            <div class="job-dates">2021 — 2023</div>
+          </div>
+          <p class="job-context">Led a 13-person remote team delivering analytics, data engineering, infrastructure, and measurement for a large pharmaceutical client.</p>
+          <ul>
+            <li>Served as the senior relationship lead across client, media, analytics, and engineering stakeholders, managing executive communication and cross-team decisions.</li>
+            <li>Led the migration from fragmented legacy systems into a <strong>centralized AWS environment</strong>, improving reliability, scalability, and measurement capabilities.</li>
+            <li>Built repeatable onboarding, delivery, and documentation processes that reduced operational friction and made the team easier to scale.</li>
+            <li>Mentored team members through cloud upskilling, helping <strong>four direct reports earn AWS certifications</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">Solutions Engineering Manager <span class="co">· Aqfer</span></div>
+            <div class="job-dates">2020 — 2021</div>
+          </div>
+          <p class="job-context">Built the client-facing solutions function during an early growth stage for an enterprise data platform.</p>
+          <ul>
+            <li>Led solution design and relationship management for <strong>12 enterprise clients</strong>, including Acxiom, U.S. Bank, MLB, and Vevo.</li>
+            <li>Supported pre-sales as the technical lead for discovery, solution scoping, product positioning, and deal qualification.</li>
+            <li>Designed client-specific data integration workflows and worked with engineering to turn recurring needs into reusable product capabilities.</li>
+            <li>Established delivery processes, ticketing, and QA standards that supported growth without proportional headcount increases.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">Data Operations Engineer <span class="co">· Goodway Group</span></div>
+            <div class="job-dates">2018 — 2020</div>
+          </div>
+          <ul>
+            <li>Built and maintained ETL pipelines that brought advertising platform and third-party data into the central analytics environment.</li>
+            <li>Worked directly with clients to improve website tagging and data collection, strengthening attribution accuracy and reporting quality.</li>
+            <li>Used SQL, Python, and Tableau to deliver campaign analytics, operational reporting, and data quality improvements.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">Lead Data Analyst &amp; Solutions Manager <span class="co">· J.D. Power</span></div>
+            <div class="job-dates">2011 — 2018</div>
+          </div>
+          <p class="job-context">Managed measurement and attribution engagements across more than 30 automotive clients, including tier-one manufacturers and dealer groups.</p>
+          <ul>
+            <li>Served as the primary relationship owner for enterprise automotive accounts, translating business goals into technical measurement solutions and supporting long-term retention.</li>
+            <li>Delivered online-to-offline attribution and identity resolution products that connected website activity with vehicle purchases.</li>
+            <li>Managed tracking pixel implementations across OEM and dealer websites, coordinating work across clients, advertising partners, analytics, and engineering teams.</li>
+            <li>Built repeatable reporting and delivery processes for large-scale automotive marketing and measurement programs.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Independent Projects</h2>
+
+        <div class="project">
+          <div class="project-head">
+            <div class="project-name">FiresideSender</div>
+            <a class="project-link" href="https://firesidesender.com" target="_blank" rel="noopener">firesidesender.com ↗</a>
+          </div>
+          <p>Full-stack project focused on website visitor identity resolution, email deliverability and warming, outbound engagement, and DNS/DMARC monitoring. Built with Node.js, React, PostgreSQL, AWS, Stripe, and OpenRouter AI to maintain hands-on experience with the systems behind data products and technical partnerships.</p>
+        </div>
+
+        <div class="project">
+          <div class="project-head">
+            <div class="project-name">UncRetro</div>
+            <a class="project-link" href="https://uncretro.com" target="_blank" rel="noopener">uncretro.com ↗</a>
+          </div>
+          <p>No-login agile retrospective tool with real-time collaboration, AI-generated summaries, and multiple board types. Built with Node.js, Socket.io, OpenRouter AI, and PostgreSQL.</p>
+        </div>
+      </section>
+
+      <footer>
+        <span>Greg Mitchell — Director of Partnerships &amp; Integrations</span>
+        <span>gregmitchell.me</span>
+      </footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>
