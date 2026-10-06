@@ -143,33 +143,6 @@
         { "@type": "SoftwareApplication", "name": "Credit Put Spread Garage", "url": "https://creditputspreadgarage.com", "applicationCategory": "FinanceApplication" },
         { "@type": "SoftwareApplication", "name": "UncRetro", "url": "https://uncretro.com", "applicationCategory": "BusinessApplication" }
       ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://gregmitchell.me/#faq",
-      "isPartOf": { "@id": "https://gregmitchell.me/#profilepage" },
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Who is Greg Mitchell?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Greg Mitchell is a data partnerships and technical integrations leader based in Longmont, Colorado, with 14 years in adtech, identity, data, and martech. Most recently he was Director, New Initiatives at Path2Response, where he led partner integrations and brought the company's first-party data to the LiveRamp marketplace." }
-        },
-        {
-          "@type": "Question",
-          "name": "What roles is Greg Mitchell open to?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Greg is open to remote roles in data partnerships, technical integrations, partner and solutions engineering, and operations for data and adtech products, especially early-stage initiatives that need someone to work out how a new partnership, product, or operation should run." }
-        },
-        {
-          "@type": "Question",
-          "name": "Which adtech and data platforms has Greg Mitchell worked with?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Greg has worked hands-on with LiveRamp, The Trade Desk, Google DV360, Yahoo DSP, MNTN, StackAdapt, Eyeota, Skydeo, Merkle/4Cite, Zeta, El Toro, Wunderkind, AWS, Amazon Redshift, Apache Airflow, and Tableau." }
-        },
-        {
-          "@type": "Question",
-          "name": "How can I contact Greg Mitchell?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Email Greg at 01greg@gmail.com, book a call at https://calendar.app.google/Zza2NAbVJ2kxAxgk8, or connect on LinkedIn at linkedin.com/in/gmitchell1." }
-        }
-      ]
     }
   ]
 }
@@ -276,13 +249,37 @@
     color: var(--accent);
     margin-bottom: 14px;
   }
+  .hero-name {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 10px;
+  }
+  .headshot {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 35%;
+    flex-shrink: 0;
+    box-shadow:
+      0 0 0 3px var(--paper),
+      0 0 0 4px var(--line),
+      0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+  @media (min-width: 821px) {
+    .headshot {
+      width: 120px;
+      height: 120px;
+    }
+  }
   h1 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(38px, 6vw, 58px);
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.05;
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
   .headline {
     font-family: 'Space Grotesk', sans-serif;
@@ -556,17 +553,6 @@
     line-height: 1.35;
   }
 
-  /* ---------- FAQ ---------- */
-  .faq-item { margin-bottom: 20px; max-width: 640px; }
-  .faq-item:last-child { margin-bottom: 0; }
-  .faq-q {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    margin-bottom: 4px;
-  }
-  .faq-item p { font-size: 14.5px; color: var(--ink-soft); }
-
   footer {
     margin-top: 24px;
     padding-top: 24px;
@@ -631,7 +617,10 @@
 
   <header>
     <div class="eyebrow" data-hero>AdTech · Identity · Martech</div>
-    <h1 data-hero style="--reveal-delay:80ms">Greg Mitchell</h1>
+    <div class="hero-name" data-hero style="--reveal-delay:80ms">
+      <img class="headshot" src="/assets/greg-headshot.jpg" alt="Greg Mitchell" width="120" height="120">
+      <h1>Greg Mitchell</h1>
+    </div>
     <p class="headline" data-hero style="--reveal-delay:160ms">Data Partnerships, Integrations &amp; Operations</p>
     <p class="tagline" data-hero style="--reveal-delay:240ms"><span class="lead">I make data work, from the contract to the pixel.</span> <span>I'm at my best early, when a new partnership, product, or internal operation needs someone to work out how it should run.</span></p>
     <div class="contact-row" data-hero style="--reveal-delay:320ms">
@@ -851,30 +840,6 @@
             <span class="cert-issuer">UVA Darden School of Business via Coursera</span>
           </a>
 
-        </div>
-      </section>
-
-      <section id="faq" data-reveal>
-        <h2>FAQ</h2>
-
-        <div class="faq-item">
-          <h3 class="faq-q">Who is Greg Mitchell?</h3>
-          <p>Greg Mitchell is a data partnerships and technical integrations leader based in Longmont, Colorado, with 14 years in adtech, identity, data, and martech. Most recently he was Director, New Initiatives at Path2Response, where he led partner integrations and brought the company's first-party data to the LiveRamp marketplace.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3 class="faq-q">What roles is Greg open to?</h3>
-          <p>Remote roles in data partnerships, technical integrations, partner and solutions engineering, and operations for data and adtech products, especially early-stage initiatives that need someone to work out how a new partnership, product, or operation should run.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3 class="faq-q">Which adtech and data platforms has Greg worked with?</h3>
-          <p>LiveRamp, The Trade Desk, Google DV360, Yahoo DSP, MNTN, StackAdapt, Eyeota, Skydeo, Merkle/4Cite, Zeta, El Toro, Wunderkind, AWS, Amazon Redshift, Apache Airflow, and Tableau.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3 class="faq-q">How can I contact Greg?</h3>
-          <p>Email <a href="mailto:01greg@gmail.com">01greg@gmail.com</a>, <a href="https://calendar.app.google/Zza2NAbVJ2kxAxgk8" target="_blank" rel="noopener">book a call on his calendar</a>, or connect on <a href="https://www.linkedin.com/in/gmitchell1" target="_blank" rel="noopener me">LinkedIn</a>.</p>
         </div>
       </section>
 
