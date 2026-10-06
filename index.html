@@ -127,12 +127,18 @@
     font-weight: 600;
     letter-spacing: -0.01em;
     margin-bottom: 12px;
+    text-wrap: balance;
   }
   .tagline {
     font-size: 18px;
     color: var(--ink-soft);
-    max-width: 620px;
+    max-width: 60ch;
     margin-bottom: 26px;
+    text-wrap: pretty;
+  }
+  .tagline .lead {
+    color: var(--ink);
+    font-weight: 500;
   }
   .contact-row {
     display: flex;
@@ -447,10 +453,10 @@
 <div class="page">
 
   <header>
-    <div class="eyebrow" data-hero>AdTech · Data · Martech</div>
+    <div class="eyebrow" data-hero>AdTech · Identity · Martech</div>
     <h1 data-hero style="--reveal-delay:80ms">Greg Mitchell</h1>
     <p class="headline" data-hero style="--reveal-delay:160ms">Data Partnerships, Integrations &amp; Operations</p>
-    <p class="tagline" data-hero style="--reveal-delay:240ms">I make data work, from the contract to the pixel. I'm at my best early, when a new partnership, product, or internal operation needs someone to work out how it should run.</p>
+    <p class="tagline" data-hero style="--reveal-delay:240ms"><span class="lead">I make data work, from the contract to the pixel.</span> <span>I'm at my best early, when a new partnership, product, or internal operation needs someone to work out how it should run.</span></p>
     <div class="contact-row" data-hero style="--reveal-delay:320ms">
       <span>Longmont, CO</span><span class="dot">/</span>
       <a href="mailto:01greg@gmail.com">01greg@gmail.com</a><span class="dot">/</span>
