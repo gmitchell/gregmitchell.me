@@ -10,10 +10,18 @@
 
   gtag('config', 'G-LKMWTJ6H07');
 </script>
+<script>document.documentElement.className += ' js';</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Greg Mitchell — Director of Partnerships & Integrations</title>
-<meta name="description" content="Greg Mitchell — Partnerships and integrations leader with 14 years across adtech, data, martech, and analytics. Open to remote director-level roles.">
+<title>Greg Mitchell | Director of Partnerships &amp; Integrations</title>
+<meta name="description" content="Greg Mitchell works on data partnerships, technical integrations, and go-to-market for data products, with 14 years across adtech, data, martech, and analytics. Based in Longmont, CO and open to remote roles.">
+<meta property="og:title" content="Greg Mitchell | Director of Partnerships &amp; Integrations">
+<meta property="og:description" content="Greg Mitchell works on data partnerships, technical integrations, and go-to-market for data products, with 14 years across adtech, data, martech, and analytics. Based in Longmont, CO and open to remote roles.">
+<meta property="og:url" content="https://gregmitchell.me">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Greg Mitchell | Director of Partnerships &amp; Integrations">
+<meta name="twitter:description" content="Greg Mitchell works on data partnerships, technical integrations, and go-to-market for data products, with 14 years across adtech, data, martech, and analytics. Based in Longmont, CO and open to remote roles.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -27,6 +35,7 @@
     --line: #dde3e9;
     --accent: #2456c8;
     --accent-dark: #1a3f96;
+    --ease-reveal: cubic-bezier(0.22, 1, 0.36, 1);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -45,6 +54,50 @@
     max-width: 1060px;
     margin: 0 auto;
     padding: 0 28px 80px;
+  }
+
+  /* ---------- Reading progress ---------- */
+  .progress-bar { display: none; }
+  @supports (animation-timeline: scroll()) {
+    .progress-bar {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      z-index: 50;
+      animation: progress-grow linear forwards;
+      animation-timeline: scroll(root);
+    }
+    @keyframes progress-grow {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+  }
+
+  /* ---------- Scroll reveal ---------- */
+  .js [data-reveal], .js [data-hero] {
+    opacity: 0;
+    translate: 0 14px;
+  }
+  .js [data-reveal].is-revealed, .js [data-hero].is-revealed {
+    opacity: 1;
+    translate: 0 0;
+    transition: opacity 600ms var(--ease-reveal) var(--reveal-delay, 0ms),
+                translate 600ms var(--ease-reveal) var(--reveal-delay, 0ms);
+  }
+  /* Keep the hover transition alive on elements that also animate in, since the
+     reveal rule above would otherwise replace their transition list. */
+  .js .project[data-reveal].is-revealed, .js .cert[data-reveal].is-revealed {
+    transition: opacity 600ms var(--ease-reveal) var(--reveal-delay, 0ms),
+                translate 600ms var(--ease-reveal) var(--reveal-delay, 0ms),
+                transform 200ms var(--ease-reveal),
+                border-color 200ms var(--ease-reveal),
+                box-shadow 200ms var(--ease-reveal);
   }
 
   /* ---------- Header ---------- */
@@ -66,6 +119,13 @@
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.05;
+    margin-bottom: 10px;
+  }
+  .headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(18px, 2.4vw, 22px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
     margin-bottom: 12px;
   }
   .tagline {
@@ -159,6 +219,7 @@
     background: var(--line);
   }
   .summary p { font-size: 16.5px; color: var(--ink-soft); max-width: 640px; }
+  .summary p + p { margin-top: 14px; }
 
   .job { margin-bottom: 38px; }
   .job:last-child { margin-bottom: 0; }
@@ -215,6 +276,12 @@
     padding: 18px 20px;
     margin-bottom: 14px;
     background: #fff;
+    transition: transform 200ms var(--ease-reveal), border-color 200ms var(--ease-reveal), box-shadow 200ms var(--ease-reveal);
+  }
+  .project:hover {
+    transform: translateY(-2px);
+    border-color: #c6d0da;
+    box-shadow: 0 6px 18px rgba(28, 39, 51, 0.07);
   }
   .project-head {
     display: flex;
@@ -234,6 +301,88 @@
     font-size: 12.5px;
   }
   .project p { font-size: 14.5px; color: var(--ink-soft); }
+
+  /* ---------- Startup programs ---------- */
+  .program { margin-bottom: 22px; }
+  .program:last-child { margin-bottom: 0; }
+  .program-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 2px;
+  }
+  .program-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .program-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+  .program p { font-size: 14.5px; color: var(--ink-soft); max-width: 640px; }
+
+  /* ---------- Certifications ---------- */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 12px;
+  }
+  .cert {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 16px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    color: inherit;
+    transition: transform 200ms var(--ease-reveal), border-color 200ms var(--ease-reveal), box-shadow 200ms var(--ease-reveal);
+  }
+  .cert:hover {
+    transform: translateY(-2px);
+    border-color: #c6d0da;
+    box-shadow: 0 6px 18px rgba(28, 39, 51, 0.07);
+    text-decoration: none;
+  }
+  .cert-badge {
+    width: 64px;
+    height: 64px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cert-badge img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    display: block;
+  }
+  .cert-badge.tile {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+  .cert-badge.tile img { width: 34px; height: 34px; }
+  .cert-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .cert-issuer {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    line-height: 1.35;
+  }
 
   footer {
     margin-top: 24px;
@@ -256,6 +405,9 @@
     main { order: 1; }
     header { padding-top: 44px; }
   }
+  @media (max-width: 560px) {
+    .cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  }
 
   /* ---------- Print ---------- */
   @media print {
@@ -267,28 +419,46 @@
     header { padding: 0 0 16px; }
     section { margin-bottom: 22px; page-break-inside: avoid; }
     .project { break-inside: avoid; }
+    .cert { break-inside: avoid; }
     a { color: var(--ink); }
+    .progress-bar { display: none !important; }
+    .js [data-reveal], .js [data-hero] {
+      opacity: 1 !important;
+      translate: none !important;
+      transition: none !important;
+    }
   }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+    .progress-bar { display: none !important; }
+    .js [data-reveal], .js [data-hero] {
+      opacity: 1 !important;
+      translate: none !important;
+      transition: none !important;
+    }
+    .project, .cert, .btn { transition: none !important; }
+    .project:hover, .cert:hover { transform: none !important; box-shadow: none !important; }
   }
 </style>
 </head>
 <body>
+<div class="progress-bar" aria-hidden="true"></div>
 <div class="page">
 
   <header>
-    <div class="eyebrow">AdTech · Data · Martech</div>
-    <h1>Greg Mitchell</h1>
-    <p class="tagline">Director of Partnerships &amp; Integrations — building partner ecosystems, technical integrations, and go-to-market motions for data products.</p>
-    <div class="contact-row">
+    <div class="eyebrow" data-hero>AdTech · Data · Martech</div>
+    <h1 data-hero style="--reveal-delay:80ms">Greg Mitchell</h1>
+    <p class="headline" data-hero style="--reveal-delay:160ms">Director of Partnerships &amp; Integrations</p>
+    <p class="tagline" data-hero style="--reveal-delay:240ms">I work where data products meet the partners and platforms that use them: scoping the integration, getting the data flowing, and keeping it running.</p>
+    <div class="contact-row" data-hero style="--reveal-delay:320ms">
       <span>Longmont, CO</span><span class="dot">/</span>
       <a href="mailto:01greg@gmail.com">01greg@gmail.com</a><span class="dot">/</span>
       <a href="tel:+13213883962">321-388-3962</a><span class="dot">/</span>
       <a href="https://linkedin.com/in/gmitchell1" target="_blank" rel="noopener">linkedin.com/in/gmitchell1</a><span class="dot">/</span>
       <span>Open to remote roles</span>
     </div>
-    <div class="actions">
+    <div class="actions" data-hero style="--reveal-delay:320ms">
       <a class="btn btn-primary" href="Greg_Mitchell_Resume.pdf" download>Download PDF</a>
       <a class="btn btn-ghost" href="mailto:01greg@gmail.com">Get in touch</a>
     </div>
@@ -298,24 +468,24 @@
 
     <aside>
       <div class="aside-inner">
-        <div class="side-block">
-          <div class="side-title">Core competencies</div>
+        <div class="side-block" data-reveal>
+          <div class="side-title">Skills</div>
           <div class="chips">
-            <span class="chip">Strategic Partnerships</span>
-            <span class="chip">Partner &amp; Vendor Management</span>
+            <span class="chip">Data Partnerships</span>
             <span class="chip">Technical Integrations</span>
-            <span class="chip">Partner Enablement</span>
-            <span class="chip">Go-to-Market Support</span>
-            <span class="chip">Technical Pre-Sales</span>
-            <span class="chip">Data &amp; Identity Ecosystem</span>
-            <span class="chip">AdTech &amp; Martech</span>
-            <span class="chip">First-Party Data</span>
+            <span class="chip">Partner &amp; Vendor Management</span>
             <span class="chip">Audience Distribution</span>
-            <span class="chip">Cross-Functional Leadership</span>
+            <span class="chip">Identity &amp; First-Party Data</span>
+            <span class="chip">Measurement &amp; Attribution</span>
+            <span class="chip">Web Tracking &amp; Tag Management</span>
+            <span class="chip">Technical Pre-Sales</span>
+            <span class="chip">Client Onboarding</span>
+            <span class="chip">SQL &amp; Python</span>
+            <span class="chip">AWS &amp; Data Pipelines</span>
             <span class="chip">Process Design &amp; Automation</span>
           </div>
         </div>
-        <div class="side-block">
+        <div class="side-block" data-reveal style="--reveal-delay:50ms">
           <div class="side-title">Education</div>
           <ul class="side-list">
             <li>Full-Stack Web Development<span class="sub">Thinkful</span></li>
@@ -327,112 +497,212 @@
 
     <main>
 
-      <section class="summary">
-        <h2>Summary</h2>
-        <p>Partnerships and integrations leader with 14 years of experience across adtech, data, martech, analytics, and enterprise technology. I manage strategic partner and vendor relationships, lead technical integrations, and support go-to-market efforts for data products. Known for translating business needs into practical technical solutions, improving partner operations, and building processes that scale. Background includes partner management, technical pre-sales, client strategy, data integrations, and cross-functional team leadership.</p>
+      <section class="summary" data-reveal>
+        <h2>About</h2>
+        <p>I've spent 14 years in adtech, data, and martech, usually in the space between the business side and the engineering side. Most recently I led data partnerships and integrations at Path2Response, including the work that put the company's first-party data in the LiveRamp marketplace. Before that I ran a 13-person analytics and data engineering team at Spark Foundry, set up the client-facing solutions function at Aqfer, and spent seven years on measurement and attribution for automotive clients at Korrelate and J.D. Power.</p>
+        <p>The part I'm best at is turning a partnership into something that actually works: scoping the integration, getting the data flowing, sorting out what breaks, and documenting the process so the next one goes faster. I also build software on my own time. It keeps me close to the technical details I'm asking partners and engineers to deal with.</p>
       </section>
 
-      <section>
+      <section data-reveal>
         <h2>Experience</h2>
 
-        <div class="job">
+        <div class="job" data-reveal>
           <div class="job-head">
-            <div class="job-title">Director, New Initiatives <span class="co">· Path2Response LLC</span></div>
-            <div class="job-dates">2023 — Present</div>
+            <div class="job-title">Director, New Initiatives <span class="co">· Path2Response</span></div>
+            <div class="job-dates">2023 – 2026</div>
           </div>
-          <p class="job-context">Lead the company's partner ecosystem, technical integrations, and go-to-market work across a first-party data and direct mail co-op business.</p>
+          <p class="job-context">Led partner integrations, data distribution, and go-to-market work for a first-party data and direct mail co-op.</p>
           <ul>
-            <li>Manage relationships with <strong>eight external data and technology partners</strong>, including Merkle/4Cite, Zeta, Skydeo, El Toro, Wunderkind, and Visual Visitor; partner-sourced data volume nearly <strong>doubled over two years</strong>.</li>
-            <li>Led the integration of the company's first-party dataset into the <strong>LiveRamp marketplace</strong>, opening distribution to more than 100 DSPs and audience platforms and creating a new revenue channel.</li>
-            <li>Own the partner lifecycle from evaluation and technical scoping through contract alignment, onboarding, launch, and ongoing relationship management.</li>
-            <li>Support new data product launches by identifying partners, shaping requirements, coordinating internal teams, and providing technical pre-sales support.</li>
-            <li>Evaluate and onboard audience distribution partners, including Eyeota, Neustar, and LiveRamp alternatives, to expand marketplace reach.</li>
-            <li>Reduced client onboarding from <strong>more than seven days to one business day</strong> through process redesign, automation, and clearer ownership.</li>
+            <li data-reveal>Guided the integration of the company's first-party dataset into the LiveRamp marketplace, opening distribution to <strong>more than 50 DSPs and audience platforms</strong> and creating a new revenue channel.</li>
+            <li data-reveal style="--reveal-delay:50ms">Managed <strong>eight data and technology partners</strong>, including Merkle/4Cite, Zeta, Skydeo, El Toro, Wunderkind, and Visual Visitor, from evaluation and technical scoping through contracts, launch, and ongoing management. Partner-sourced data volume <strong>nearly doubled over two years</strong>.</li>
+            <li data-reveal style="--reveal-delay:100ms">Created and maintained audience segments in LiveRamp for activation in The Trade Desk, Google DV360, Yahoo DSP, MNTN, and StackAdapt, and expanded distribution through Skydeo (including Meta) and Eyeota.</li>
+            <li data-reveal style="--reveal-delay:150ms">Cut client onboarding from <strong>more than seven days to one business day</strong> with a redesigned process, automation, and clearer ownership.</li>
+            <li data-reveal style="--reveal-delay:200ms">Owned partner and client escalations, including root-cause analysis and resolution.</li>
+            <li data-reveal style="--reveal-delay:250ms">Built internal tooling, including a pixel-monitoring tool for tag operations.</li>
+            <li data-reveal style="--reveal-delay:300ms">Hired and mentored three team members.</li>
           </ul>
         </div>
 
-        <div class="job">
+        <div class="job" data-reveal>
           <div class="job-head">
             <div class="job-title">Director of Analytics <span class="co">· Spark Foundry</span></div>
-            <div class="job-dates">2021 — 2023</div>
+            <div class="job-dates">2021 – 2023</div>
           </div>
-          <p class="job-context">Led a 13-person remote team delivering analytics, data engineering, infrastructure, and measurement for a large pharmaceutical client.</p>
+          <p class="job-context">Led a 13-person remote team handling analytics, data engineering, infrastructure, and measurement for a large pharmaceutical client.</p>
           <ul>
-            <li>Served as the senior relationship lead across client, media, analytics, and engineering stakeholders, managing executive communication and cross-team decisions.</li>
-            <li>Led the migration from fragmented legacy systems into a <strong>centralized AWS environment</strong>, improving reliability, scalability, and measurement capabilities.</li>
-            <li>Built repeatable onboarding, delivery, and documentation processes that reduced operational friction and made the team easier to scale.</li>
-            <li>Mentored team members through cloud upskilling, helping <strong>four direct reports earn AWS certifications</strong>.</li>
+            <li data-reveal>Was the senior relationship lead across client, media, analytics, and engineering stakeholders, covering executive communication, quarterly business reviews, and escalations.</li>
+            <li data-reveal style="--reveal-delay:50ms">Led the migration from fragmented legacy systems to a <strong>centralized AWS environment</strong>, which improved reliability, scalability, and measurement.</li>
+            <li data-reveal style="--reveal-delay:100ms">Used Airflow and Python to process raw record-level data into aggregated Amazon Redshift datasets for Tableau and other BI tools.</li>
+            <li data-reveal style="--reveal-delay:150ms">Built repeatable onboarding, delivery, and documentation processes that made the team easier to scale.</li>
+            <li data-reveal style="--reveal-delay:200ms">Hired and mentored team members and helped <strong>four direct reports earn AWS certifications</strong>.</li>
           </ul>
         </div>
 
-        <div class="job">
+        <div class="job" data-reveal>
           <div class="job-head">
             <div class="job-title">Solutions Engineering Manager <span class="co">· Aqfer</span></div>
-            <div class="job-dates">2020 — 2021</div>
+            <div class="job-dates">2020 – 2021</div>
           </div>
-          <p class="job-context">Built the client-facing solutions function during an early growth stage for an enterprise data platform.</p>
+          <p class="job-context">Early-stage enterprise data platform serving adtech and martech use cases. Established the client-facing solutions function.</p>
           <ul>
-            <li>Led solution design and relationship management for <strong>12 enterprise clients</strong>, including Acxiom, U.S. Bank, MLB, and Vevo.</li>
-            <li>Supported pre-sales as the technical lead for discovery, solution scoping, product positioning, and deal qualification.</li>
-            <li>Designed client-specific data integration workflows and worked with engineering to turn recurring needs into reusable product capabilities.</li>
-            <li>Established delivery processes, ticketing, and QA standards that supported growth without proportional headcount increases.</li>
+            <li data-reveal>Led solution design and relationship management for <strong>12 enterprise clients</strong>, including Acxiom, U.S. Bank, MLB, and Vevo.</li>
+            <li data-reveal style="--reveal-delay:50ms">Ran client discovery and solution scoping as the technical lead, translating business needs into technical requirements.</li>
+            <li data-reveal style="--reveal-delay:100ms">Designed client-specific data integration workflows and worked with engineering to turn recurring needs into reusable product capabilities.</li>
+            <li data-reveal style="--reveal-delay:150ms">Wrote SQL, including CTAS queries, to extract platform data and produce flat-file outputs for clients.</li>
+            <li data-reveal style="--reveal-delay:200ms">Set up delivery processes, ticketing, and QA standards that let the team grow without adding headcount at the same pace.</li>
           </ul>
         </div>
 
-        <div class="job">
+        <div class="job" data-reveal>
           <div class="job-head">
             <div class="job-title">Data Operations Engineer <span class="co">· Goodway Group</span></div>
-            <div class="job-dates">2018 — 2020</div>
+            <div class="job-dates">2018 – 2020</div>
           </div>
           <ul>
-            <li>Built and maintained ETL pipelines that brought advertising platform and third-party data into the central analytics environment.</li>
-            <li>Worked directly with clients to improve website tagging and data collection, strengthening attribution accuracy and reporting quality.</li>
-            <li>Used SQL, Python, and Tableau to deliver campaign analytics, operational reporting, and data quality improvements.</li>
+            <li data-reveal>Automated SQL transformations of raw advertising platform and third-party data into summary datasets in Amazon Redshift, orchestrated with Apache Airflow.</li>
+            <li data-reveal style="--reveal-delay:50ms">Worked directly with clients on website tagging and data collection to improve attribution accuracy and reporting quality.</li>
+            <li data-reveal style="--reveal-delay:100ms">Built Tableau dashboards and used SQL and Python for campaign analytics, operational reporting, and data quality fixes.</li>
           </ul>
         </div>
 
-        <div class="job">
+        <div class="job" data-reveal>
           <div class="job-head">
-            <div class="job-title">Lead Data Analyst &amp; Solutions Manager <span class="co">· J.D. Power</span></div>
-            <div class="job-dates">2011 — 2018</div>
+            <div class="job-title">Lead Data Analyst &amp; Solutions Manager <span class="co">· Korrelate / J.D. Power</span></div>
+            <div class="job-dates">2011 – 2018</div>
           </div>
-          <p class="job-context">Managed measurement and attribution engagements across more than 30 automotive clients, including tier-one manufacturers and dealer groups.</p>
+          <p class="job-context">Korrelate was a marketing measurement startup. Joined during its early-stage growth and remained through the 2014 acquisition by J.D. Power. Managed measurement and attribution engagements for more than 30 automotive clients, including tier-1 manufacturers and dealer groups.</p>
           <ul>
-            <li>Served as the primary relationship owner for enterprise automotive accounts, translating business goals into technical measurement solutions and supporting long-term retention.</li>
-            <li>Delivered online-to-offline attribution and identity resolution products that connected website activity with vehicle purchases.</li>
-            <li>Managed tracking pixel implementations across OEM and dealer websites, coordinating work across clients, advertising partners, analytics, and engineering teams.</li>
-            <li>Built repeatable reporting and delivery processes for large-scale automotive marketing and measurement programs.</li>
+            <li data-reveal>Served as the primary relationship owner for enterprise automotive accounts, turning business goals into technical measurement solutions.</li>
+            <li data-reveal style="--reveal-delay:50ms">Managed tracking pixel implementations across OEM and dealer websites, coordinating clients, advertising partners, analytics, and engineering.</li>
+            <li data-reveal style="--reveal-delay:100ms">Delivered online-to-offline attribution and identity resolution products that connected website activity with vehicle purchases.</li>
+            <li data-reveal style="--reveal-delay:150ms">Ran test vs. control analyses and built repeatable reporting for large automotive marketing programs.</li>
           </ul>
         </div>
       </section>
 
-      <section>
+      <section data-reveal>
         <h2>Independent Projects</h2>
 
-        <div class="project">
+        <div class="project" data-reveal>
           <div class="project-head">
             <div class="project-name">FiresideSender</div>
             <a class="project-link" href="https://firesidesender.com" target="_blank" rel="noopener">firesidesender.com ↗</a>
           </div>
-          <p>Full-stack project focused on website visitor identity resolution, email deliverability and warming, outbound engagement, and DNS/DMARC monitoring. Built with Node.js, React, PostgreSQL, AWS, Stripe, and OpenRouter AI to maintain hands-on experience with the systems behind data products and technical partnerships.</p>
+          <p>A B2B SaaS platform I'm building on my own. It covers website visitor identity resolution, email warming and deliverability, cold outreach, and DNS/DMARC monitoring. Built with Node.js, React, PostgreSQL, AWS, Stripe, and OpenRouter. Working on it keeps me hands-on with the same kinds of systems I deal with in data partnerships.</p>
         </div>
 
-        <div class="project">
+        <div class="project" data-reveal style="--reveal-delay:50ms">
           <div class="project-head">
             <div class="project-name">UncRetro</div>
             <a class="project-link" href="https://uncretro.com" target="_blank" rel="noopener">uncretro.com ↗</a>
           </div>
-          <p>No-login agile retrospective tool with real-time collaboration, AI-generated summaries, and multiple board types. Built with Node.js, Socket.io, OpenRouter AI, and PostgreSQL.</p>
+          <p>A no-login retrospective board for agile teams, with real-time collaboration, AI-generated summaries, and several board types. Built with Node.js, Socket.io, OpenRouter, and PostgreSQL.</p>
+        </div>
+      </section>
+
+      <section data-reveal>
+        <h2>Startup Programs</h2>
+
+        <div class="program" data-reveal>
+          <div class="program-head">
+            <div class="program-name"><a href="https://sbdc.colorado.gov/programs-events/leading-edge-for-startups" target="_blank" rel="noopener">Leading Edge for Startups ↗</a></div>
+          </div>
+          <div class="program-meta">Colorado SBDC, Boulder County · 2026, in progress</div>
+          <p>Six-week founder program covering market analysis, sales strategy, operations, and financial forecasting, ending with a pitch.</p>
+        </div>
+
+        <div class="program" data-reveal style="--reveal-delay:50ms">
+          <div class="program-head">
+            <div class="program-name"><a href="https://www.starterstudio.org/" target="_blank" rel="noopener">StarterStudio ↗</a></div>
+          </div>
+          <div class="program-meta">Orlando, FL · 2020 cohort</div>
+          <p>Went through StarterStudio's 2020 incubator cohort with PixelCrawler, my SaaS project for auditing, monitoring, and keeping a history of the tracking pixels on a website.</p>
+        </div>
+      </section>
+
+      <section data-reveal>
+        <h2>Certifications</h2>
+        <div class="cert-grid">
+
+          <a class="cert" href="https://skillshop.docebosaas.com/learn/courses/18609/google-analytics-certification-2026?hash=431fa82ffb0e1bda5dff36a5d18418ddcbbe5343&amp;generated_by=1525525" target="_blank" rel="noopener" data-reveal>
+            <span class="cert-badge tile">
+              <img src="assets/certs/google-analytics.svg" width="34" height="34" loading="lazy" alt="Badge: Google Analytics Certification">
+            </span>
+            <span class="cert-name">Google Analytics Certification</span>
+            <span class="cert-issuer">Google Skillshop</span>
+          </a>
+
+          <a class="cert" href="https://www.credly.com/badges/339036ae-6e15-4a46-b895-87b6974b5fab" target="_blank" rel="noopener" data-reveal style="--reveal-delay:50ms">
+            <span class="cert-badge">
+              <img src="assets/certs/ttd-data-driven-planning.png" width="64" height="64" loading="lazy" alt="Badge: Data-Driven Planning">
+            </span>
+            <span class="cert-name">Data-Driven Planning</span>
+            <span class="cert-issuer">The Trade Desk Edge Academy</span>
+          </a>
+
+          <a class="cert" href="https://www.credly.com/badges/0afbd58c-6665-4b2e-ad73-af3d281641d7" target="_blank" rel="noopener" data-reveal style="--reveal-delay:100ms">
+            <span class="cert-badge">
+              <img src="assets/certs/ttd-marketing-essentials.png" width="64" height="64" loading="lazy" alt="Badge: Marketing Essentials">
+            </span>
+            <span class="cert-name">Marketing Essentials</span>
+            <span class="cert-issuer">The Trade Desk Edge Academy</span>
+          </a>
+
+          <a class="cert" href="https://www.coursera.org/account/accomplishments/verify/S0TOSMSKUXES" target="_blank" rel="noopener" data-reveal style="--reveal-delay:150ms">
+            <span class="cert-badge tile">
+              <img src="assets/certs/coursera-logo.svg" width="34" height="34" loading="lazy" alt="Badge: Digital Product Management: Modern Fundamentals">
+            </span>
+            <span class="cert-name">Digital Product Management: Modern Fundamentals</span>
+            <span class="cert-issuer">UVA Darden School of Business via Coursera</span>
+          </a>
+
         </div>
       </section>
 
       <footer>
-        <span>Greg Mitchell — Director of Partnerships &amp; Integrations</span>
-        <span>gregmitchell.me</span>
+        <span>Greg Mitchell · gregmitchell.me</span>
       </footer>
 
     </main>
   </div>
 </div>
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hero = document.querySelectorAll('[data-hero]');
+  var targets = document.querySelectorAll('[data-reveal]');
+
+  function revealAll(list) {
+    for (var i = 0; i < list.length; i++) list[i].classList.add('is-revealed');
+  }
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    revealAll(hero);
+    revealAll(targets);
+    return;
+  }
+
+  requestAnimationFrame(function () { revealAll(hero); });
+
+  var io = new IntersectionObserver(function (entries) {
+    for (var i = 0; i < entries.length; i++) {
+      var entry = entries[i];
+      if (!entry.isIntersecting) {
+        // Already scrolled past (deep link, restored scroll position, jump
+        // scroll), so it would otherwise never get a chance to reveal.
+        if (entry.boundingClientRect.bottom > 0) continue;
+      } else if (entry.intersectionRatio < 0.15 && entry.boundingClientRect.top > 0) {
+        // Elements taller than the viewport can never reach a 0.15 ratio, so
+        // also accept anything whose top edge has passed the viewport top.
+        continue;
+      }
+      entry.target.classList.add('is-revealed');
+      io.unobserve(entry.target);
+    }
+  }, { threshold: [0, 0.15], rootMargin: '0px 0px -10% 0px' });
+
+  for (var i = 0; i < targets.length; i++) io.observe(targets[i]);
+})();
+</script>
 </body>
 </html>
