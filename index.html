@@ -157,21 +157,109 @@
 
   gtag('config', 'G-LKMWTJ6H07');
 </script>
-<script>document.documentElement.className += ' js';</script>
+<script>
+  // Runs before first paint: no flash of the wrong theme. The attribute is only
+  // set when the visitor has made an explicit choice, so the CSS default stays
+  // tied to the OS setting.
+  (function () {
+    var root = document.documentElement;
+    root.className += ' js';
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') {
+        root.setAttribute('data-theme', saved);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.content = saved === 'dark' ? '#11161d' : '#2456c8';
+      }
+    } catch (e) {}
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
+    color-scheme: light;
+    --dark: 0;
     --ink: #1c2733;
     --ink-soft: #46525f;
     --ink-faint: #7a8694;
     --paper: #fbfcfd;
     --panel: #f1f4f7;
+    --surface: #ffffff;
     --line: #dde3e9;
+    --line-strong: #c6d0da;
     --accent: #2456c8;
     --accent-dark: #1a3f96;
+    --accent-ink: #ffffff;
+    --badge-tile: var(--panel);
+    --badge-tile-line: var(--line);
+    --shadow-card: rgba(28, 39, 51, 0.07);
+    --shadow-ring: rgba(0, 0, 0, 0.12);
+    /* Optical compensation: light-on-dark type reads heavier, so the dark
+       palette thins the display weight and opens up tracking a touch. */
+    --display-weight: 700;
+    --smoothing: auto;
+    --smoothing-osx: auto;
+    --body-tracking: 0;
+    --bullet-alpha: 0.55;
     --ease-reveal: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Dark palette. Follows the OS unless the visitor has explicitly chosen
+     light; the second block is the explicit opt-in. Both are screen-only so
+     printing always uses the light palette above. Keep the two in sync. */
+  @media screen and (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --dark: 1;
+      --ink: #e7ebf1;
+      --ink-soft: #afb9c6;
+      --ink-faint: #7d8896;
+      --paper: #11161d;
+      --panel: #1b222c;
+      --surface: #161d26;
+      --line: #27303c;
+      --line-strong: #3b4654;
+      --accent: #7da6f8;
+      --accent-dark: #a0c0fb;
+      --accent-ink: #0c1017;
+      --badge-tile: #eaeef3;
+      --badge-tile-line: #d5dce4;
+      --shadow-card: rgba(0, 0, 0, 0.45);
+      --shadow-ring: rgba(0, 0, 0, 0.55);
+      --display-weight: 600;
+      --smoothing: antialiased;
+      --smoothing-osx: grayscale;
+      --body-tracking: 0.004em;
+      --bullet-alpha: 0.75;
+    }
+  }
+  @media screen {
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --dark: 1;
+      --ink: #e7ebf1;
+      --ink-soft: #afb9c6;
+      --ink-faint: #7d8896;
+      --paper: #11161d;
+      --panel: #1b222c;
+      --surface: #161d26;
+      --line: #27303c;
+      --line-strong: #3b4654;
+      --accent: #7da6f8;
+      --accent-dark: #a0c0fb;
+      --accent-ink: #0c1017;
+      --badge-tile: #eaeef3;
+      --badge-tile-line: #d5dce4;
+      --shadow-card: rgba(0, 0, 0, 0.45);
+      --shadow-ring: rgba(0, 0, 0, 0.55);
+      --display-weight: 600;
+      --smoothing: antialiased;
+      --smoothing-osx: grayscale;
+      --body-tracking: 0.004em;
+      --bullet-alpha: 0.75;
+    }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -181,6 +269,10 @@
     background: var(--paper);
     line-height: 1.55;
     font-size: 15.5px;
+    letter-spacing: var(--body-tracking);
+    -webkit-font-smoothing: var(--smoothing);
+    -moz-osx-font-smoothing: var(--smoothing-osx);
+    transition: background-color 400ms var(--ease-reveal), color 400ms var(--ease-reveal);
   }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
@@ -241,13 +333,65 @@
     padding: 64px 0 40px;
     border-bottom: 1px solid var(--line);
   }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
   .eyebrow {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 14px;
+  }
+
+  /* ---------- Theme toggle ---------- */
+  .theme-toggle {
+    flex: none;
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    /* Pulls the optical edge of the icon flush with the content column. */
+    margin: -7px -7px -7px 0;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--ink-faint);
+    cursor: pointer;
+    transition: color 200ms var(--ease-reveal),
+                background-color 200ms var(--ease-reveal),
+                border-color 200ms var(--ease-reveal);
+  }
+  .theme-toggle:hover {
+    color: var(--ink);
+    background: var(--panel);
+    border-color: var(--line);
+  }
+  html:not(.js) .theme-toggle { display: none; }
+
+  .theme-icon { display: block; width: 19px; height: 19px; }
+  .theme-icon .core,
+  .theme-icon .rays,
+  .theme-icon .mask-dot {
+    transform-origin: center;
+    transition: transform 500ms var(--ease-reveal), opacity 300ms var(--ease-reveal);
+  }
+  /* Sun becomes a crescent: the disc grows while a masking circle slides in
+     from the right and the rays retract. Driven by --dark so the whole icon
+     follows whatever the palette resolved to. */
+  .theme-icon .core { transform: scale(calc(1 + 0.75 * var(--dark))); }
+  .theme-icon .mask-dot { transform: translateX(calc(-7px * var(--dark))); }
+  .theme-icon .rays {
+    transform: scale(calc(1 - 0.55 * var(--dark))) rotate(calc(-25deg * var(--dark)));
+    opacity: calc(1 - var(--dark));
   }
   .hero-name {
     display: flex;
@@ -265,7 +409,7 @@
     box-shadow:
       0 0 0 3px var(--paper),
       0 0 0 4px var(--line),
-      0 4px 16px rgba(0, 0, 0, 0.12);
+      0 4px 16px var(--shadow-ring);
   }
   @media (min-width: 821px) {
     .headshot {
@@ -276,7 +420,7 @@
   h1 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(38px, 6vw, 58px);
-    font-weight: 700;
+    font-weight: var(--display-weight);
     letter-spacing: -0.02em;
     line-height: 1.05;
     margin-bottom: 0;
@@ -321,7 +465,7 @@
     border: 1px solid var(--accent);
     transition: background .15s, color .15s;
   }
-  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
   .btn-primary:hover { background: var(--accent-dark); text-decoration: none; }
   .btn-ghost { color: var(--accent); background: transparent; }
   .btn-ghost:hover { background: var(--panel); text-decoration: none; }
@@ -435,7 +579,7 @@
     height: 6px;
     border-radius: 1px;
     background: var(--accent);
-    opacity: 0.55;
+    opacity: var(--bullet-alpha);
   }
   .job li strong { color: var(--ink); font-weight: 600; }
 
@@ -444,13 +588,13 @@
     border-radius: 8px;
     padding: 18px 20px;
     margin-bottom: 14px;
-    background: #fff;
+    background: var(--surface);
     transition: transform 200ms var(--ease-reveal), border-color 200ms var(--ease-reveal), box-shadow 200ms var(--ease-reveal);
   }
   .project:hover {
     transform: translateY(-2px);
-    border-color: #c6d0da;
-    box-shadow: 0 6px 18px rgba(28, 39, 51, 0.07);
+    border-color: var(--line-strong);
+    box-shadow: 0 6px 18px var(--shadow-card);
   }
   .project-head {
     display: flex;
@@ -510,14 +654,14 @@
     padding: 16px 12px;
     border: 1px solid var(--line);
     border-radius: 8px;
-    background: #fff;
+    background: var(--surface);
     color: inherit;
     transition: transform 200ms var(--ease-reveal), border-color 200ms var(--ease-reveal), box-shadow 200ms var(--ease-reveal);
   }
   .cert:hover {
     transform: translateY(-2px);
-    border-color: #c6d0da;
-    box-shadow: 0 6px 18px rgba(28, 39, 51, 0.07);
+    border-color: var(--line-strong);
+    box-shadow: 0 6px 18px var(--shadow-card);
     text-decoration: none;
   }
   .cert-badge {
@@ -535,8 +679,10 @@
     display: block;
   }
   .cert-badge.tile {
-    background: var(--panel);
-    border: 1px solid var(--line);
+    /* Stays a light chip in dark mode so the brand-colored logos keep their
+       own colors and remain legible. */
+    background: var(--badge-tile);
+    border: 1px solid var(--badge-tile-line);
     border-radius: 14px;
   }
   .cert-badge.tile img { width: 34px; height: 34px; }
@@ -581,7 +727,7 @@
   /* ---------- Print ---------- */
   @media print {
     body { font-size: 12px; background: #fff; }
-    .actions, .btn { display: none !important; }
+    .actions, .btn, .theme-toggle { display: none !important; }
     .layout { grid-template-columns: 1fr; gap: 0; }
     aside { order: 2; }
     .aside-inner { position: static; }
@@ -606,7 +752,8 @@
       translate: none !important;
       transition: none !important;
     }
-    .project, .cert, .btn { transition: none !important; }
+    .project, .cert, .btn, body, .theme-toggle,
+    .theme-icon .core, .theme-icon .rays, .theme-icon .mask-dot { transition: none !important; }
     .project:hover, .cert:hover { transform: none !important; box-shadow: none !important; }
   }
 </style>
@@ -616,7 +763,28 @@
 <div class="page">
 
   <header>
-    <div class="eyebrow" data-hero>AdTech · Identity · Martech</div>
+    <div class="header-top" data-hero>
+      <div class="eyebrow">AdTech · Identity · Martech</div>
+      <button class="theme-toggle" id="theme-toggle" type="button" title="Switch theme" aria-label="Switch theme">
+        <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <mask id="theme-icon-mask">
+            <rect x="0" y="0" width="24" height="24" fill="#fff"></rect>
+            <circle class="mask-dot" cx="24" cy="10" r="6" fill="#000"></circle>
+          </mask>
+          <circle class="core" cx="12" cy="12" r="5.5" fill="currentColor" mask="url(#theme-icon-mask)"></circle>
+          <g class="rays" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+            <line x1="12" y1="1.7" x2="12" y2="3.7"></line>
+            <line x1="12" y1="20.3" x2="12" y2="22.3"></line>
+            <line x1="1.7" y1="12" x2="3.7" y2="12"></line>
+            <line x1="20.3" y1="12" x2="22.3" y2="12"></line>
+            <line x1="4.9" y1="4.9" x2="6.3" y2="6.3"></line>
+            <line x1="17.7" y1="17.7" x2="19.1" y2="19.1"></line>
+            <line x1="4.9" y1="19.1" x2="6.3" y2="17.7"></line>
+            <line x1="17.7" y1="6.3" x2="19.1" y2="4.9"></line>
+          </g>
+        </svg>
+      </button>
+    </div>
     <div class="hero-name" data-hero style="--reveal-delay:80ms">
       <img class="headshot" src="/assets/greg-headshot.jpg" alt="Greg Mitchell" width="120" height="120">
       <h1>Greg Mitchell</h1>
@@ -852,6 +1020,52 @@
   </div>
 </div>
 <script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  if (!btn || !window.matchMedia) return;
+
+  var system = window.matchMedia('(prefers-color-scheme: dark)');
+  var meta = document.querySelector('meta[name="theme-color"]');
+  var bar = { light: '#2456c8', dark: '#11161d' };
+
+  function saved() {
+    try {
+      var value = localStorage.getItem('theme');
+      return value === 'light' || value === 'dark' ? value : null;
+    } catch (e) {
+      return null;
+    }
+  }
+  function active() { return saved() || (system.matches ? 'dark' : 'light'); }
+
+  function sync() {
+    var next = active() === 'dark' ? 'light' : 'dark';
+    btn.setAttribute('aria-label', 'Switch to ' + next + ' mode');
+    btn.title = 'Switch to ' + next + ' mode';
+    if (meta) meta.content = bar[active()];
+  }
+
+  btn.addEventListener('click', function () {
+    var next = active() === 'dark' ? 'light' : 'dark';
+    var follows = next === (system.matches ? 'dark' : 'light');
+    // Landing back on the OS value drops the override, so the page resumes
+    // following system settings instead of pinning the choice forever.
+    try {
+      if (follows) localStorage.removeItem('theme');
+      else localStorage.setItem('theme', next);
+    } catch (e) {}
+    if (follows) root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', next);
+    sync();
+  });
+
+  if (system.addEventListener) system.addEventListener('change', sync);
+  else if (system.addListener) system.addListener(sync);
+
+  sync();
+})();
+
 (function () {
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hero = document.querySelectorAll('[data-hero]');
