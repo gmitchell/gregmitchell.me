@@ -1,0 +1,37 @@
+# Greg Mitchell
+
+> Greg Mitchell is a data partnerships and technical integrations leader based in Longmont, Colorado, with 14 years in adtech, identity, data, and martech. He works in the space between business and engineering: scoping partner integrations, getting data flowing, fixing what breaks, and documenting the process so the next one goes faster. He is open to remote roles.
+
+- Website: https://gregmitchell.me/
+- LinkedIn: https://www.linkedin.com/in/gmitchell1
+- Email: 01greg@gmail.com
+- Phone: 321-388-3962
+- Resume (PDF): https://gregmitchell.me/Greg_Mitchell_Resume.pdf
+
+## Experience
+
+- **Director, New Initiatives, Path2Response (2023–2026).** Led partner integrations, data distribution, and go-to-market for a first-party data and direct mail co-op. Guided the integration of the company's first-party dataset into the LiveRamp marketplace, opening distribution to more than 50 DSPs and audience platforms. Managed eight data and technology partners (Merkle/4Cite, Zeta, Skydeo, El Toro, Wunderkind, Visual Visitor, and others); partner-sourced data volume nearly doubled over two years. Activated audiences in The Trade Desk, Google DV360, Yahoo DSP, MNTN, and StackAdapt, plus Meta (via Skydeo) and Eyeota. Cut client onboarding from more than seven days to one business day.
+- **Director of Analytics, Spark Foundry (2021–2023).** Led a 13-person remote analytics and data engineering team for a large pharmaceutical client. Led migration to a centralized AWS environment; built Airflow and Python pipelines into Amazon Redshift for Tableau. Helped four direct reports earn AWS certifications.
+- **Solutions Engineering Manager, Aqfer (2020–2021).** Established the client-facing solutions function at an early-stage enterprise data platform. Led solution design for 12 enterprise clients including Acxiom, U.S. Bank, MLB, and Vevo.
+- **Data Operations Engineer, Goodway Group (2018–2020).** Automated SQL transformations into Amazon Redshift with Apache Airflow; website tagging and attribution; Tableau dashboards.
+- **Lead Data Analyst & Solutions Manager, Korrelate / J.D. Power (2011–2018).** Measurement and attribution for more than 30 automotive clients. Worked on Korrelate's patented double-blind matching system, an early form of a data clean room, connecting ad exposure to vehicle purchases while keeping consumer identities private. Stayed through the 2014 acquisition by J.D. Power.
+
+## Skills
+
+Data partnerships; technical integrations; partner and vendor management; audience distribution; identity and first-party data; privacy-safe data matching and clean rooms; measurement and attribution; web tracking and tag management; technical pre-sales; client onboarding; SQL and Python; AWS and data pipelines; process design and automation.
+
+## Independent projects
+
+- [FiresideSender](https://firesidesender.com): B2B SaaS for website visitor identity resolution, email warming and deliverability, cold outreach, and DNS/DMARC monitoring.
+- [Credit Put Spread Garage](https://creditputspreadgarage.com): Daily options screener for credit put spreads with AI-written trade reasoning and performance tracking.
+- [UncRetro](https://uncretro.com): No-login retrospective board for agile teams with real-time collaboration and AI summaries.
+
+## Education, programs, and certifications
+
+- Full-Stack Web Development, Thinkful
+- Computer Science coursework, Valencia College
+- Leading Edge for Startups, Colorado SBDC Boulder County (2026, in progress)
+- StarterStudio incubator, Orlando (2020 cohort, with PixelCrawler)
+- Google Analytics Certification (Google Skillshop)
+- Data-Driven Planning and Marketing Essentials (The Trade Desk Edge Academy)
+- Digital Product Management: Modern Fundamentals (UVA Darden via Coursera)
