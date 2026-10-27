@@ -45,4 +45,4 @@ Google Tag Manager (GTM); Tealium and Ensighten; website tags and data layers; G
 ## Programs
 
 - Leading Edge for Startups, Colorado SBDC, Boulder County (2026). Six-week founder program covering market analysis, sales strategy, operations, and financial forecasting, ending with a pitch.
-- StarterStudio, Orlando (2020 cohort), with PixelCrawler, a product for auditing, monitoring, and keeping a history of the tracking pixels on a website.
+- StarterStudio, Orlando (2020 cohort).
