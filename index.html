@@ -143,11 +143,6 @@
           "url": "https://www.coursera.org/account/accomplishments/verify/S0TOSMSKUXES",
           "recognizedBy": { "@type": "CollegeOrUniversity", "name": "University of Virginia Darden School of Business" }
         }
-      ],
-      "owns": [
-        { "@type": "SoftwareApplication", "name": "FiresideSender", "url": "https://firesidesender.com", "applicationCategory": "BusinessApplication" },
-        { "@type": "SoftwareApplication", "name": "Credit Put Spread Garage", "url": "https://creditputspreadgarage.com", "applicationCategory": "FinanceApplication" },
-        { "@type": "SoftwareApplication", "name": "UncRetro", "url": "https://uncretro.com", "applicationCategory": "BusinessApplication" }
       ]
     }
   ]
@@ -607,14 +602,6 @@
     color: var(--ink-secondary);
     max-width: 62ch;
   }
-  .stack {
-    margin: -8px 0 20px;
-    font-size: 13px;
-    color: var(--ink-secondary);
-    letter-spacing: 0;
-  }
-  .ext { font-size: 14px; flex: none; }
-
   .certs {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -749,7 +736,6 @@
     <a class="wordmark" href="#top">Greg Mitchell</a>
     <div class="bar-links">
       <a href="#experience">Experience</a>
-      <a href="#work">Work</a>
       <a href="#contact">Contact</a>
       <button class="theme-toggle" id="theme-toggle" type="button" title="Switch theme" aria-label="Switch theme">
         <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -970,37 +956,6 @@
           </span>
         </a>
       </div>
-    </section>
-
-    <section id="work" data-reveal>
-      <h2>Independent work</h2>
-
-      <article>
-        <div class="row">
-          <h3 class="row-title"><a class="quiet" href="https://firesidesender.com" target="_blank" rel="noopener">FiresideSender</a></h3>
-          <a class="ext" href="https://firesidesender.com" target="_blank" rel="noopener">firesidesender.com</a>
-        </div>
-        <p class="blurb">A B2B platform for website visitor identity, email deliverability, outreach, and DNS monitoring.</p>
-        <p class="stack">Node.js · React · PostgreSQL · AWS · Stripe</p>
-      </article>
-
-      <article>
-        <div class="row">
-          <h3 class="row-title"><a class="quiet" href="https://creditputspreadgarage.com" target="_blank" rel="noopener">Credit Put Spread Garage</a></h3>
-          <a class="ext" href="https://creditputspreadgarage.com" target="_blank" rel="noopener">creditputspreadgarage.com</a>
-        </div>
-        <p class="blurb">A daily screener for credit put spreads. It scores setups, writes a rationale for each idea, and tracks how those ideas perform.</p>
-        <p class="stack">Node.js · PostgreSQL · Alpaca</p>
-      </article>
-
-      <article>
-        <div class="row">
-          <h3 class="row-title"><a class="quiet" href="https://uncretro.com" target="_blank" rel="noopener">UncRetro</a></h3>
-          <a class="ext" href="https://uncretro.com" target="_blank" rel="noopener">uncretro.com</a>
-        </div>
-        <p class="blurb">A retrospective board for agile teams, with real-time collaboration and written summaries. No account required.</p>
-        <p class="stack">Node.js · Socket.io · PostgreSQL</p>
-      </article>
     </section>
 
     <section id="programs" data-reveal>

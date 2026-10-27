@@ -42,12 +42,6 @@ Google Tag Manager (GTM); Tealium and Ensighten; website tags and data layers; G
 - Marketing Essentials (The Trade Desk Edge Academy)
 - Digital Product Management: Modern Fundamentals (UVA Darden School of Business via Coursera)
 
-## Independent work
-
-- [FiresideSender](https://firesidesender.com): B2B platform for website visitor identity, email deliverability, outreach, and DNS monitoring.
-- [Credit Put Spread Garage](https://creditputspreadgarage.com): Daily screener for credit put spreads, with a written rationale for each idea and performance tracking.
-- [UncRetro](https://uncretro.com): Retrospective board for agile teams with real-time collaboration and written summaries. No account required.
-
 ## Programs
 
 - Leading Edge for Startups, Colorado SBDC, Boulder County (2026). Six-week founder program covering market analysis, sales strategy, operations, and financial forecasting, ending with a pitch.
